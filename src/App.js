@@ -5,14 +5,14 @@ import Analysis from './components/AnalysisPage';
 import Home from './components/Login';
 import PredictionResults from './components/PredictionResult';
 import Signup from './components/Signup';
-import User_Interface from './components/User_Interface';
+import UserInterface from './components/UserInterface';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Signup />} />
         <Route path="/Login" element={<Home />} />
-        <Route path="/ui" element={<User_Interface />} />
+        <Route path="/ui" element={<UserInterface />} />
         <Route path="/results" element={<PredictionResults />} />
         <Route path="/analysis" element={<Analysis/>} />
 
