@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Analysis = () => {
@@ -32,7 +32,7 @@ const Analysis = () => {
     useEffect(() => {
         const fetchUpdatedValues = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/get_updated_values/", {
+                const response = await axios.get("https://sustainability-fastapi.onrender.com/get_updated_values/", {
                     params: { years }
                 });
                 setProductionVolume(response.data.production_volume);
@@ -51,7 +51,7 @@ const Analysis = () => {
         setLoadingAnalysis(true);
         setError(null);
         try {
-            const response = await axios.get("http://127.0.0.1:8000/analyze/", {
+            const response = await axios.get("https://sustainability-fastapi.onrender.com/analyze/", {
                 params: { production_volume: productionVolume, waste_generated: wasteGenerated, employee_count: employeeCount, years }
             });
             setAnalysisResult(response.data);
@@ -67,7 +67,7 @@ const Analysis = () => {
         setLoadingChart(true);
         setError(null);
         try {
-            const response = await axios.get("http://127.0.0.1:8000/visualize/", {
+            const response = await axios.get("https://sustainability-fastapi.onrender.com/visualize/", {
                 params: { k: years, field, chart_type: chartType },
                 responseType: "blob",
             });

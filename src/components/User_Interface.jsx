@@ -1,8 +1,8 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import { FaChartLine, FaFileUpload, FaPlayCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { FaFileUpload, FaChartLine, FaPlayCircle } from 'react-icons/fa';
 
 const TrainAndPredict = () => {
     const [csvFile, setCsvFile] = useState(null);
@@ -35,7 +35,7 @@ const TrainAndPredict = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.post('http://127.0.0.1:8000/train/', formData);
+            const response = await axios.post('https://sustainability-fastapi.onrender.com/train/', formData);
             setMessage(response.data.message);
         } catch (err) {
             setError(err.response?.data?.detail || 'An error occurred while training the model.');
@@ -57,7 +57,7 @@ const TrainAndPredict = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.post('http://127.0.0.1:8000/predict/', formData);
+            const response = await axios.post('https://sustainability-fastapi.onrender.com/predict/', formData);
             navigate('/results', { state: { predictions: response.data, years } });
         } catch (err) {
             setError(err.response?.data?.detail || 'An error occurred while predicting.');

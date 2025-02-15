@@ -1,7 +1,7 @@
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PredictionResults = () => {
     const location = useLocation();
@@ -31,7 +31,7 @@ const PredictionResults = () => {
             let chartData = {};
 
             for (const type of chartTypes) {
-                const response = await axios.get(`http://127.0.0.1:8000/visualize/?k=${years}&chart_type=${type}`, {
+                const response = await axios.get(`https://sustainability-fastapi.onrender.com/visualize/?k=${years}&chart_type=${type}`, {
                     responseType: "blob",
                 });
                 chartData[type] = URL.createObjectURL(response.data);
