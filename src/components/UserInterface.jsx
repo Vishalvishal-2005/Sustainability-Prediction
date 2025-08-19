@@ -4,6 +4,16 @@ import React, { useState } from 'react';
 import { FaChartLine, FaFileUpload, FaPlayCircle, FaDownload } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Component for training a model and making predictions based on a CSV file.
+ *
+ * This component manages the state for file uploads, years input, loading status, messages, and errors.
+ * It provides functionality to handle file changes, initiate training, and make predictions by sending
+ * requests to a specified API endpoint. The component also navigates to a results page upon successful
+ * predictions and displays appropriate messages based on the operation's outcome.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 const TrainAndPredict = () => {
     const [csvFile, setCsvFile] = useState(null);
     const [years, setYears] = useState('');
