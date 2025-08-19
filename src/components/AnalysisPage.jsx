@@ -2,6 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Component for data analysis and visualization.
+ *
+ * This component manages state for user inputs, fetches updated values and analysis data from an API,
+ * and handles the visualization of results. It includes dropdowns for selecting fields and chart types,
+ * and buttons to trigger data fetching. The component also manages loading states and error handling
+ * for a seamless user experience.
+ *
+ * @returns {JSX.Element} The rendered component for data analysis and visualization.
+ */
 const Analysis = () => {
     const navigate = useNavigate();
 
