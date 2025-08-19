@@ -6,6 +6,9 @@ import Home from './components/Login';
 import PredictionResults from './components/PredictionResult';
 import Signup from './components/Signup';
 import UserInterface from './components/UserInterface';
+/**
+ * Renders the main application routes.
+ */
 function App() {
   return (
     <Router>
